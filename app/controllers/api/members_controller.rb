@@ -2,7 +2,7 @@ class Api::MembersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_hackathon
   before_action :set_team
-  before_action :set_member, only [:show, :update, :destroy]
+  before_action :set_member, only: [:show, :update, :destroy]
 
   def index
     render json: @team.members

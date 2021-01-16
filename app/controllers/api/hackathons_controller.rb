@@ -1,5 +1,5 @@
 class Api::HackathonsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_hackathon, only: [:update, :destroy, :show]
   
   def index
@@ -19,7 +19,7 @@ class Api::HackathonsController < ApplicationController
      if hackathon.save
       render json: hackathon
      else
-      render json {errors: hackathon.errors}, status: 422
+      render json: {errors: hackathon.errors }, status: 422
      end
   end
   
@@ -36,7 +36,7 @@ class Api::HackathonsController < ApplicationController
   private
   
   def hackathon_params
-    params.require(:hackathon).permit(:name, :active, :date)
+    params.require(:hackathon).permit(:name, :active, :date, :judges)
   end
   
   def set_hackathon
