@@ -1,7 +1,7 @@
 class Api::ObjectivesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_hackathon
-  before_action :set_objective, [:show, :update, :destroy]
+  before_action :set_objective, only: [:show, :update, :destroy]
 
   def index
     render json: @hackathon.objectives

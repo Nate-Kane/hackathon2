@@ -18,8 +18,8 @@ class Api::HackathonsController < ApplicationController
     hackathon = current_user.hackathons.new(hackathon_params)
      if hackathon.save
       render json: hackathon
-     else
-      render json {errors: hackathon.errors}, status: 422
+    #  else
+    #   render json {errors: hackathon.errors}, status: 422
      end
   end
   
