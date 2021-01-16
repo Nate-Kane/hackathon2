@@ -15,11 +15,11 @@ const TeamForm = () => {
     addTeam(e);
   };
 
-  const renderTeams = () => {
-    return Teams.map((teams) => {
-      return <
-    })
-  }
+  // const renderTeams = () => {
+  //   return Teams.map((teams) => {
+  //     return <
+  //   })
+  // }
 
   return (
     <>
