@@ -33,16 +33,18 @@
 
 // export default App;
 
-import React, { Fragment, } from 'react';
-import Home from './components/Home';
-import NoMatch from './components/NoMatch';
-import Navbar from './components/Navbar';
-import Login from './components/Login';
-import Register from './components/Register';
-import { Switch, Route, } from 'react-router-dom';
-import { Container, } from "semantic-ui-react";
-import FetchUser from './components/FetchUser';
-import ProtectedRoute from './components/ProtectedRoute';
+import React, { Fragment } from "react";
+import Home from "./components/Home";
+import NoMatch from "./components/NoMatch";
+import Navbar from "./components/Navbar";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import { Switch, Route } from "react-router-dom";
+import { Container } from "semantic-ui-react";
+import FetchUser from "./components/FetchUser";
+import ProtectedRoute from "./components/ProtectedRoute";
+import HackahtonForm from "./components/HackathonForm";
+import TeamForm from "./components/TeamForm";
 
 const App = () => (
   <Fragment>
@@ -53,11 +55,13 @@ const App = () => (
           <ProtectedRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/hackathonform" component={HackahtonForm} />
+          <Route exact path="/teamform" component={TeamForm} />
           <Route component={NoMatch} />
         </Switch>
       </Container>
     </FetchUser>
   </Fragment>
-)
+);
 
 export default App;
