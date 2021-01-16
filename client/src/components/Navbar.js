@@ -39,6 +39,9 @@ const Navbar1 = (props) => {
         <Link to="/">
           <Menu.Item name="home" id="home" active={pathname === "/"} />
         </Link>
+        <Link to="/hackathon/1/objectives">
+          <Menu.Item name="Objectives" id="objectives" active={pathname === "/hackathon/:hackathon_id/objectives"} />
+        </Link>
         {rightNavItems()}
       </Menu>
     </div>

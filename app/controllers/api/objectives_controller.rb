@@ -1,9 +1,10 @@
 class Api::ObjectivesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_hackathon
   before_action :set_objective, only: [:show, :update, :destroy]
 
   def index
+    # binding.pry
     render json: @hackathon.objectives
   end
 
@@ -12,11 +13,12 @@ class Api::ObjectivesController < ApplicationController
   end
 
   def create
-    objective = @hackathon.objective.new(objective_params)
+    objective = @hackathon.objectives.new(objective_params)
      if objective.save
       render json: objective
      else
       render json: {errors: objective.errors}, status: 422
+     end
   end
 
   def update
@@ -40,6 +42,7 @@ class Api::ObjectivesController < ApplicationController
   end
 
   def set_hackathon
+    # @hackathon = current_user.hackathons.find(params[:hackathon_id])
     @hackathon = current_user.hackathons.find(params[:hackathon_id])
   end
 end

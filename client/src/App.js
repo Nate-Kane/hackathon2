@@ -11,6 +11,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import HackathonForm from "./components/HackathonForm";
 import TeamForm from "./components/TeamForm";
 import Teams from "./components/Teams";
+import Objectives from "./components/Objectives";
+import Hackathons from './components/Hackathons';
+import ShowHackathon from './components/ShowHackathon';
 
 const App = () => (
   <Fragment>
@@ -23,6 +26,10 @@ const App = () => (
           <Route exact path="/register" component={Register} />
           <Route exact path="/hackathonform" component={HackathonForm} />
           <Route exact path="/:hackathon_id/teams" component={Teams} />
+          <Route exact path="/hackathons" component={Hackathons} />
+          <Route exact path="/showHackathon" component={ShowHackathon} />
+          <Route exact path="/teamform" component={TeamForm} />
+          <Route exact path="/hackathon/:hackathon_id/objectives" component={Objectives}/>
           <Route component={NoMatch} />
         </Switch>
       </Container>
