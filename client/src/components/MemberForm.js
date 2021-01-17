@@ -2,25 +2,20 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Form } from "semantic-ui-react";
 
-const TeamForm = ({ addTeam }) => {
+const MemberForm = ({ addMember }) => {
   const [name, setName] = useState([]);
-
-  
 
   const handleSubmit = (e) => {
     console.log("Submit clicked");
-    addTeam({ name: name });
+    addMember({ name: name });
   };
 
   return (
     <>
       <div>
-        <h2>Team Form</h2>
-      </div>
-      <div>
         <Form onSubmit={handleSubmit}>
           <Form.Input
-            placeholder="Team Name"
+            placeholder="Member Name"
             name="name"
             value={name}
             onChange={(e) => {
@@ -34,4 +29,4 @@ const TeamForm = ({ addTeam }) => {
   );
 };
 
-export default TeamForm;
+export default MemberForm;

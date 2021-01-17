@@ -12,11 +12,12 @@ class Api::TeamsController < ApplicationController
   end
 
   def create
-    team = @hackathon.team.new(team_params)
+    team = @hackathon.teams.new(team_params)
      if team.save
       render json: team
      else
       render json: {errors: team.errors}, status: 422
+     end
   end
 
   def update
@@ -31,16 +32,16 @@ class Api::TeamsController < ApplicationController
 
   private 
 
-  def set_team 
-    @team = @hackathon.teams.find(params[:id])
-  end
+    def set_team 
+      @team = @hackathon.teams.find(params[:id])
+    end
 
-  def team_params
-    params.require(:team).permit(:name, :total_points, :course)
-  end
+    def team_params
+      params.require(:team).permit(:name, :total_points, :course)
+    end
 
-  def set_hackathon
-    @hackathon = current_user.hackathons.find(params[:hackathon_id])
-  end
-
+    def set_hackathon
+      @hackathon = current_user.hackathons.find(params[:hackathon_id])
+    end
+  
 end
